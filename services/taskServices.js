@@ -49,10 +49,13 @@ const updateTaskService = (id, data) => {
     const task = Task.findByIdAndUpdate(
         {_id: id},
         data,
-        {new: true, runValidators: true, overwrite: true}
+    {new: true, runValidators: true, overwrite: true}
+       
     )
+  
     return task;
-}
+} 
+
 
 
 /**

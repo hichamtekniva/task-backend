@@ -37,6 +37,7 @@ const getTasksController = async (req, res) => {
   if(completed && completed !== ''){
     queryObject.completed = completed
   }
+  
   const tasks = await getTasksService(queryObject);
   res
     .status(StatusCodes.OK)
@@ -61,10 +62,11 @@ const updateTaskController = async (req, res) => {
   // ? destructuring
 
   const {
-    body: { name, completed },
+    body: { name,email, completed },
     params: { id: id },
   } = req;
-  const task = await updateTaskService(id, { name, completed });
+  const task = await updateTaskService(id, { name,email,email});
+
   if (!task) {
     return res
       .status(StatusCodes.NOT_FOUND)
